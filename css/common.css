@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  /* 순서에 따라 적용되는 font가 다르다. Roboto font는 영문만 지원 되기 때문에 작성 순서에 따라 영문은 Roboto를 사용하고 한글은 Noto Sans KR을 적용 시킬 수 있다. 만약 Noto sans KR을 앞에 쓴다면 영문도 Noto Sans KR 이 적용된다.*/
+  font-size: 16px;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  line-height: 1;
+  /* word-break은 줄바꿈 단위를 정한다. 기준) 문자, 단어 */
+  word-break: keep-all;
+  height: 2000px;
+}
+a {
+  color: #1d1d1d;
+  text-decoration: none;
+}
+.inner {
+  max-width: 1020px;
+  margin: 0 auto;
+  position: relative;
+}

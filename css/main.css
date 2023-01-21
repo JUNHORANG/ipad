@@ -1,0 +1,235 @@
+html.fixed {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+/* HEADER */
+header {
+  background-color: #3a3a3a;
+}
+header ul.menu {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+header ul.menu > li {
+  display: flex;
+  position: relative;
+  transition: .4s;
+}
+header ul.menu > li > a {
+  color: #f5f5f5;
+  opacity: .8;
+  padding: 0 10px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+header ul.menu > li.apple-logo > a,
+header ul.menu > li.search-starter > a,
+header ul.menu > li.basket-stater > a {
+  width: 14px;
+  background-position: center 13px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+header ul.menu > li.apple-logo > a {
+  background-image: url(../img/header_apple.svg);
+}
+header ul.menu > li.search-starter > a {
+  background-image: url(../img/header_search.svg);
+}
+header ul.menu > li.basket-stater > a {
+  background-image: url(../img/header_bag.svg);
+}
+header ul.menu > li > a:hover {
+  opacity: 1;
+}
+
+
+/* Header / Menu / Basket */
+header .basket {
+  width: 290px;
+  padding: 10px 20px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -13px;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+header .basket.show {
+  visibility: visible;
+  opacity: 1;
+}
+header .basket .arrow {
+  width: 20px;
+  height: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  right: 12px;
+}
+header .basket .arrow::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 1px solid #d2d2d2;
+  background-color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+header .basket .message {
+  padding: 30px 0;
+  font-size: 13px;
+  color: #6e6e6e;
+  text-align: center;
+}
+header .basket ul {
+  margin-top: 10px;
+}
+header .basket ul li {
+  border-top: 1px solid #d2d2d2;
+}
+header .basket ul li a {
+  padding: 14px;
+  display: block;
+  font-size: 13px;
+  color: #0071e3;
+}
+header .basket ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Header / Search */
+header .search-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+header .search-wrap .search {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+header .search-wrap .shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.4);
+}
+header .search-wrap .text-field {
+  position: relative;
+}
+header .text-field input {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 17px;
+  color: #fff;
+}
+header .text-field .search-icon {
+  background-image: url(../img/header_search.svg);
+  left: 0;
+  opacity: .4;
+}
+header .text-field .search-icon:hover {
+  opacity: 1;
+}
+header .text-field .search-closer {
+  background-image: url(../img/header_close.svg);
+  right: 0;
+  opacity: .4;
+  cursor: pointer;
+}
+header .text-field .search-closer:hover {
+  opacity: 1;
+}
+header .text-field .search-icon,
+header .text-field .search-closer {
+  width: 40px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+}
+header .search-wrap .autocompletes {
+  width: 100%;
+  padding: 26px 40px 20px;
+  border-radius: 0 0 18px 18px;
+  background-color: #fff;
+  position: absolute;
+  top: 44px;
+  left: 0;
+}
+header .autocompletes h3 {
+  font-size: 12px;
+  color: #6e6e6e;
+  margin-bottom: 12px;
+}
+header .autocompletes ul li a {
+  display: block;
+  margin: 0 -14px;
+  padding: 10px 0 10px 30px;
+  font-size: 14px;
+  cursor: pointer;
+}
+header .autocompletes ul li a:hover {
+  background-color: #f5f5f5;
+  color: #0071e3;
+}
+header.searching ul.menu > li {
+  opacity: 0;
+  transform: scale(.7);
+}
+header.searching .search-wrap {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: .2s;
+}
+header .text-field input,
+header .text-field .search-icon,
+header .autocompletes h3,
+header .autocompletes li {
+  transform: translate(100px, 0);
+  transition: .6s;
+}
+header.searching .text-field input,
+header.searching .text-field .search-icon,
+header.searching .autocompletes h3,
+header.searching .autocompletes li {
+  transform: translate(0, 0);
+  transition-delay: .2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
