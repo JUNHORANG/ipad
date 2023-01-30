@@ -6,10 +6,16 @@ html.fixed {
 
 /* HEADER */
 header {
-  background-color: #3a3a3a;
+  --h: 44px;
+  background-color: var(--color-header);
+  position: relative;
+  z-index: 9;
+}
+header .inner {
+  max-width: 1020px;
 }
 header ul.menu {
-  height: 44px;
+  height: var(--h);
   display: flex;
   justify-content: space-between;
 }
@@ -19,7 +25,7 @@ header ul.menu > li {
   transition: .4s;
 }
 header ul.menu > li > a {
-  color: #f5f5f5;
+  color: var(--color-font-lightgray);
   opacity: .8;
   padding: 0 10px;
   font-size: 11px;
@@ -52,9 +58,9 @@ header ul.menu > li > a:hover {
 header .basket {
   width: 290px;
   padding: 10px 20px;
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: absolute;
   top: calc(100% + 4px);
   right: -13px;
@@ -78,8 +84,8 @@ header .basket .arrow::before {
   content: '';
   width: 12px;
   height: 12px;
-  border: 1px solid #d2d2d2;
-  background-color: #fff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
@@ -89,24 +95,25 @@ header .basket .arrow::before {
 header .basket .message {
   padding: 30px 0;
   font-size: 13px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
   text-align: center;
 }
 header .basket ul {
   margin-top: 10px;
 }
 header .basket ul li {
-  border-top: 1px solid #d2d2d2;
+  border-top: 1px solid var(--color-border);
 }
 header .basket ul li a {
   padding: 14px;
   display: block;
   font-size: 13px;
-  color: #0071e3;
+  color: var(--color-link);
 }
 header .basket ul li a:hover {
   text-decoration: underline;
 }
+
 
 /* Header / Search */
 header .search-wrap {
@@ -129,20 +136,20 @@ header .search-wrap .shadow {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,.4);
+  background-color: var(--color-shadow);
 }
 header .search-wrap .text-field {
   position: relative;
 }
 header .text-field input {
   width: 100%;
-  height: 44px;
+  height: var(--h);
   padding: 0 40px;
   border: none;
   outline: none;
   background-color: transparent;
   font-size: 17px;
-  color: #fff;
+  color: var(--color-white);
 }
 header .text-field .search-icon {
   background-image: url(../img/header_search.svg);
@@ -164,7 +171,7 @@ header .text-field .search-closer:hover {
 header .text-field .search-icon,
 header .text-field .search-closer {
   width: 40px;
-  height: 44px;
+  height: var(--h);
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -174,14 +181,14 @@ header .search-wrap .autocompletes {
   width: 100%;
   padding: 26px 40px 20px;
   border-radius: 0 0 18px 18px;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: absolute;
-  top: 44px;
+  top: var(--h);
   left: 0;
 }
 header .autocompletes h3 {
   font-size: 12px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
   margin-bottom: 12px;
 }
 header .autocompletes ul li a {
@@ -191,9 +198,9 @@ header .autocompletes ul li a {
   font-size: 14px;
   cursor: pointer;
 }
-header .autocompletes ul li a:hover {
-  background-color: #f5f5f5;
-  color: #0071e3;
+header .autocompletes ul li:hover a {
+  background-color: var(--color-section);
+  color: var(--color-link);
 }
 header.searching ul.menu > li {
   opacity: 0;
@@ -218,6 +225,164 @@ header.searching .autocompletes li {
   transform: translate(0, 0);
   transition-delay: .2s;
 }
+
+
+/* navigation */
+nav {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  background-color: rgba(255,255,255, .7);
+  z-index: 8;
+}
+nav .inner {
+  display: flex;
+  max-width: 1000px;
+  height: 52px;
+  align-items: center;
+}
+nav h1 {
+  flex-grow: 1;
+  font-size: 22px;
+  font-weight: 700;
+}
+nav ul.menu {
+  display: flex;
+  gap: 12px;
+  margin-right: 18px;
+}
+nav ul.menu li a {
+  display: block;
+  padding: 6px;
+  font-size: 11px;
+}
+nav ul.menu li:hover a {
+  color: var(--color-link);
+}
+nav ul.menu li.active a {
+  opacity: .5;
+  cursor: default;
+}
+nav ul.menu li.active:hover a {
+  color: var(--color-font);
+}
+
+
+/* hero */
+.hero {
+  background-color: var(--color-section);
+}
+.hero .inner {
+  padding-bottom: 110px;
+}
+.hero h1 {
+  text-indent: -9999px;
+  width: 221px;
+  height: 91px;
+  background-image: url("../img/hero_ipad_text.png");
+  position: absolute;
+  transform: translate(624px, 235px);
+  z-index: 1;
+}
+.hero .figures {
+  height: 808px;
+}
+.hero figure {
+  transform: translate(74px, -64px);
+}
+.hero figure figcaption .caption-camera {
+  transform: translate(43px, 580px);
+  width: 120px;
+  height: 84px;
+  background-image: url(../img/hero_ipad_caption_camera.png);
+}
+.hero figure figcaption .caption-chip {
+  transform: translate(589px, 510px);
+  width: 95px;
+  height: 43px;
+  background-image: url(../img/hero_ipad_caption_chip.png);
+}
+.hero figure figcaption .caption-storage {
+  transform: translate(627px, 631px);
+  width: 80px;
+  height: 43px;
+  background-image: url(../img/hero_ipad_caption_storage.png);
+}
+.hero h2 {
+  width: 738px;
+  height: 145px;
+  margin: 0 auto;
+  background-image: url(../img/hero_headline.png);
+}
+.hero p.pricing {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.hero p.description {
+  width: 88%;
+  margin: 18px auto 0;
+  font-size: 19px;
+  text-align: center;
+}
+.hero .link {
+  margin-top: 30px;
+}
+
+
+/* power */
+.power {
+  margin-top: 110px;
+}
+.power .multiple-apps h1 {
+  background-image: url("../img/power_headline.png");
+  width: 500px;
+  height: 280px;
+  transform: translate(104px,0);
+}
+.power .multiple-apps .figures {
+  height: 773px;
+}
+.power .multiple-apps figcaption {
+  width: 138px;
+  height: 46px;
+  background-image: url("../img/power_multiple_apps_caption.png");
+  transform: translate(703px, -47px);
+}
+.power .arcade {
+  margin-top: 55px;
+}
+.power .arcade .figures {
+  height: 600px;
+}
+.power .arcade figure {
+  transform: translate(-347px, -90px);
+}
+.power .arcade figcaption {
+  width: 150px;
+  height: 77px;
+  background-image: url("../img/power_arcade_caption.png");
+  transform: translate(483px, 653px);
+}
+.power .create {}
+.power .create .figures {}
+.power .create .figure {}
+.power .create figcaption {}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
