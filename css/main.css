@@ -366,10 +366,21 @@ nav ul.menu li.active:hover a {
   background-image: url("../img/power_arcade_caption.png");
   transform: translate(483px, 653px);
 }
-.power .create {}
-.power .create .figures {}
-.power .create .figure {}
-.power .create figcaption {}
+.power .create {
+  margin-top: 55px;
+}
+.power .create .figures {
+  height: 772px;
+}
+.power .create .figure {
+  transform: translate(-25px, 50px);
+}
+.power .create figcaption {
+  width: 142px;
+  height: 46px;
+  background-image: url("../img/power_create_caption.png");
+  transform: translate(543px, 908px);
+}
 
 
 
