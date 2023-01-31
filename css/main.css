@@ -382,6 +382,97 @@ nav ul.menu li.active:hover a {
   transform: translate(543px, 908px);
 }
 
+/* display */
+.display {
+  margin-top: 450px;
+}
+.display .notes h1 {
+  width: 630px;
+  height: 370px;
+  transform: translate(104px, 0);
+  background-image: url("../img/display_headline.png");
+}
+.display .notes .figures {
+  height: 814px;
+  margin-top: 26px;
+}
+.display .notes figcaption {
+  width: 140px;
+  height: 45px;
+  transform: translate(707px, -16px);
+  background-image: url("../img/display_notes_caption.png");
+}
+.display .shareplay {
+  margin-top: 55px;
+}
+.display .shareplay .figures {
+  height: 630px;
+}
+.display .shareplay .figures figure {
+  transform: translate(-360px, 0);
+}
+.display .shareplay .figures figcaption {
+  width: 110px;
+  height: 48px;
+  transform: translate(300px, 658px);
+  background-image: url("../img/display_shareplay_caption.png");
+}
+
+/* camera */
+.camera {
+  margin-top: 303px;
+}
+.camera .stage {
+  position: relative;
+}
+.camera .stage h1 {
+  width: 650px;
+  height: 450px;
+  transform: translate(-25px,0);
+  background-image: url("../img/camera_headline.png");
+}
+.camera .stage .info {
+  position: absolute;
+  top: 150px;
+  right: 0;
+}
+.camera .stage .figures {
+  height: 770px;
+  margin-top: 24px;
+}
+.camera .stage figure {
+  transform: translate(90px, 0)
+}
+.camera .stage figcaption {
+  width: 130px;
+  height: 110px;
+  transform: translate(-116px,383px);
+  background-image: url("../img/camera_hardware_caption.png");
+}
+.camera .edit .figures {
+  height: 910px;
+}
+.camera .edit figure {
+  transform: translate(20px, 0);
+}
+.camera .edit figcaption {
+  width: 130px;
+  height: 47px;
+  transform: translate(27px, 905px);
+  background-image: url("../img/camera_edit_caption.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

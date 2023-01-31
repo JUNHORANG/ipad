@@ -67,6 +67,7 @@ shadowArea.addEventListener('click', hideSearch);
 //IntersectionObserver 가시성 관찰
 
 const io = new IntersectionObserver(( entries ) => {
+  //관찰하는 요소들을 배열로 가져온다. 그러므로 entries는 관찰하는 요소들의 배열이다.
   entries.forEach((entry) => {
     if(!entry.isIntersecting){
       return
