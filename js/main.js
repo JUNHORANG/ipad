@@ -1,3 +1,6 @@
+import ipads from '../data/iPads.js';
+import navigations from '../data/navigations.js'
+
 const basketStaterEl = document.querySelector('header .basket-stater');
 const basketEl = basketStaterEl.querySelector('.basket');
 const searchStarterEl = document.querySelector('.search-starter a');
@@ -97,3 +100,61 @@ pauseBtn.addEventListener('click', (e) => {
   pauseBtn.classList.add('hide');
   playBtn.classList.remove('hide');
 });
+
+//compare section 반복문 사용해서 html 삽입
+const itemsEl = document.querySelector('.compare .items');
+ipads.forEach((ipad) => {
+  const itemEl = document.createElement('div');
+  itemEl.classList.add('item');
+
+  let colorList = '';
+  ipad.colors.forEach((el) => {
+    colorList += `<li style="background-color:${el};"></li>`
+  });
+
+  itemEl.innerHTML = /* html */`
+  <div class="thumbnail">
+      <img src="${ipad.thumbnail}" alt="${ipad.name}" />
+  </div>
+  <ul class="colors">
+    ${colorList}
+  </ul>
+  <h3 class="name">${ipad.name}</h3>
+  <p class="tagline">${ipad.tagline}</p>
+  <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p>
+  <button class="btn">구입하기</button>
+  <a href="javascript:void(0)" class="link">구입하기</a>
+  `
+
+  itemsEl.append(itemEl);
+});
+
+// footer > navigator
+const footerNavEl = document.querySelector("footer .navigations");
+
+navigations.forEach((nav)=>{
+  const mapEl = document.createElement('div');
+  mapEl.classList.add('map');
+
+  let liList = '';
+
+  nav.maps.forEach((map) => {
+    liList += /* html */ `
+      <li><a href="${map.url}">${map.name}</a></li>
+      `
+  });
+
+  mapEl.innerHTML += /* html */ `
+  <h3>
+    <span class="text">${nav.title}</span>
+  </h3>
+  <ul>
+    ${liList}
+  </ul>
+  `
+
+  footerNavEl.append(mapEl);
+});
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
