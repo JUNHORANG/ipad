@@ -6,6 +6,7 @@ html {
   --color-black: #000;
   --color-font: #1d1d1d;
   --color-font-darkgray: #6e6e6e;
+  --color-font-middlegray: #b7b7b7;
   --color-font-lightgray: #f5f5f5;
   --color-link: #0071e3;
   --color-link-focus: #81b9f1;
@@ -50,6 +51,11 @@ sup {
   position: relative;
   padding: 0 20px;
 }
+@media (max-width:1000px) {
+  .inner{
+    max-width: 692px;
+  }
+}
 .btn {
   display: flex;
   justify-content: center;
@@ -83,6 +89,16 @@ sup {
   justify-content: center;
   gap: 40px;
 }
+@media (max-width:740px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  a.link {
+    font-size: 17px;
+  }
+}
 a.link {
   color: var(--color-link);
   font-size: 19px;
@@ -96,6 +112,11 @@ a.link::after {
 }
 .feature {
   display: flex;
+}
+@media (max-width: 740px) {
+  .feature {
+    flex-direction: column;
+  }
 }
 .figures {
   flex-grow: 1;
@@ -111,6 +132,15 @@ a.link::after {
   position: absolute;
   top: 0;
   left: 0;
+}
+@media (max-width:740px) {
+  .figures {
+    display: flex;
+    justify-content: center;
+  }
+  .figures figure{
+    position: relative;
+  }
 }
 .infos {
   display: flex;
@@ -143,6 +173,37 @@ a.link::after {
   height: 100px;
   margin: 0 0 -15px -30px;
   animation: sprite-icon 3s steps(1) infinite;
+}
+@media (max-width: 1000px) {
+  .info {
+    max-width: 230px;
+  }
+  .infos--large .info {
+    max-width: 288px;
+  }
+  .info .icon {
+    transform: scale(.8);
+    margin: -30px 0 -24px -32px;
+  }
+  .info p {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+  .info a.link {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 740px) {
+  .info {
+    max-width: none;
+    padding: 0 20px;
+  }
+  .infos--large .info {
+    max-width: none;
+  }
+  .info a.link {
+    font-size: 17px;
+  }
 }
 .info .icon.icon--chip         { background-image: url("../img/sprite_chip.png"); }
 .info .icon.icon--faster       { background-image: url("../img/sprite_faster.png"); }
@@ -198,6 +259,22 @@ a.link::after {
 .whitebox a.link {
   display: block;
   margin-top: 26px;
+}
+@media (max-width: 1000px) {
+  .whitebox {
+    padding: 60px 30px;
+  }
+  .whitebox .icon {
+    width: 44px;
+  }
+  .whitebox h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 740px) {
+  .whitebox p {
+    font-size: 17px;
+  }
 }
 
 /* animation keyframs */

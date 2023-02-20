@@ -13,7 +13,7 @@ const menuEls = [...headerEl.querySelectorAll('ul.menu > li')];
 const autocompletesEl = [...document.querySelectorAll('.autocompletes li')];
 
 window.addEventListener('click', (e) => {
-
+  hideNavMenu();
   // 이벤트 위임
   //header basket
   if(e.target.classList.contains('basket--controller')) {
@@ -24,7 +24,7 @@ window.addEventListener('click', (e) => {
   if(e.target === searchStarterEl) {
     headerEl.classList.add('searching');
     //스크롤 기능 막기
-    document.documentElement.classList.add('fixed');
+    stopScroll();
     searchFadeOutAnimation();
     autocompletesEl.forEach((el, idx) => {
       el.style.transitionDelay = idx * .4 / autocompletesEl.length + 's';
@@ -38,6 +38,12 @@ window.addEventListener('click', (e) => {
   basketEl.classList.remove('show');
 });
 
+function playScroll() {
+  document.documentElement.classList.remove('fixed');
+}
+function stopScroll() {
+  document.documentElement.classList.add('fixed');
+}
 
 // header basket
 basketEl.addEventListener('click',(e) => {
@@ -52,9 +58,20 @@ function searchFadeOutAnimation() {
   });
 }
 
+const searchTextFieldEl = document.querySelector('.text-field');
+const searchCancelEl = document.querySelector('.search-canceler');
+
+searchTextFieldEl.addEventListener('click',(e) => {
+  headerEl.classList.add('searching--mobile');
+  searchInputEl.focus();
+});
+searchCancelEl.addEventListener('click',()=>{
+  headerEl.classList.remove('searching--mobile');
+});
+
 function hideSearch() {
   headerEl.classList.remove('searching');
-  document.documentElement.classList.remove('fixed');
+  playScroll();
   searchFadeOutAnimation();
   autocompletesEl.reverse().forEach((el, idx) => {
     el.style.transitionDelay = idx * .4 / autocompletesEl.length + 's';
@@ -63,9 +80,57 @@ function hideSearch() {
   searchInputEl.value = '';
 }
 
-searchCloser.addEventListener('click', hideSearch);
+searchCloser.addEventListener('click', (e) => {
+  e.stopPropagation();
+  hideSearch();
+});
 shadowArea.addEventListener('click', hideSearch);
 
+// header menu toggle
+const menuStarterEl= document.querySelector('header .menu-starter');
+
+menuStarterEl.addEventListener('click', (e) => {
+  if (headerEl.classList.contains('menuing')) {
+    headerEl.classList.remove('menuing');
+    searchInputEl.value = '';
+    playScroll();
+  } else {
+    headerEl.classList.add('menuing');
+    stopScroll();
+  }
+});
+
+window.addEventListener('resize', ()=>{
+  if( window.innerWidth <= 740 ) {
+    headerEl.classList.remove('searching');
+  } else {
+    headerEl.classList.remove('searching--mobile');
+  }
+});
+
+const navEl = document.querySelector('nav');
+const navMenuToggleEl = navEl.querySelector('.menu-toggler');
+const navShadowEl = navEl.querySelector('.shadow');
+
+navMenuToggleEl.addEventListener('click',() => {
+  if(navEl.classList.contains('menuing')) {
+    hideNavMenu();
+  } else {
+    showNavMenu();
+  }
+});
+navEl.addEventListener('click', (e)=>{
+  e.stopPropagation();
+});
+navShadowEl.addEventListener('click',()=>{
+  hideNavMenu();
+});
+function showNavMenu() {
+  navEl.classList.add('menuing')
+}
+function hideNavMenu() {
+  navEl.classList.remove('menuing')
+}
 
 //IntersectionObserver 가시성 관찰
 
@@ -147,6 +212,7 @@ navigations.forEach((nav)=>{
   mapEl.innerHTML += /* html */ `
   <h3>
     <span class="text">${nav.title}</span>
+    <span class="icon">+<span>
   </h3>
   <ul>
     ${liList}
@@ -158,3 +224,11 @@ navigations.forEach((nav)=>{
 
 const thisYear = document.querySelector('.this-year');
 thisYear.textContent = new Date().getFullYear();
+
+const mapEls = document.querySelectorAll('footer .navigations .map');
+mapEls.forEach((e) => {
+  const h3El = e.querySelector('h3');
+  h3El.addEventListener('click', () => {
+    e.classList.toggle('active');
+  });
+});
